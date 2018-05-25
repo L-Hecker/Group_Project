@@ -1,4 +1,8 @@
-### install.packages("TMDb")
+### install.packages("TMDb") ### 
+
+
+# ^^^ install if you haven't already, very helpful
+
 library(TMDb)
 # Library TMBd allows you to use functions that interact with the TMBd API
 library(httr)
@@ -44,3 +48,5 @@ get_data <- function(x) {
 revenue_info <- apply(id_list, 1, get_data)
 
 # Turn list into data frame somehow by accessing each individual list for the movies
+
+# unlist data? and make into data frame?
