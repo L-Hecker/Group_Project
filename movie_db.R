@@ -9,6 +9,7 @@ library(httr)
 library(jsonlite)
 library(dplyr)
 library(lubridate)
+library(data.table)
 
 
 
@@ -50,3 +51,6 @@ revenue_info <- apply(id_list, 1, get_data)
 # Turn list into data frame somehow by accessing each individual list for the movies
 
 # unlist data? and make into data frame?
+revenue_df <- data.frame(t(sapply(revenue_info,c))) %>% 
+  select(title, overview, budget,release_date,
+         revenue, runtime, homepage, poster_path)
