@@ -61,8 +61,11 @@ revenue_df$earnings <- ifelse((as.numeric(revenue_df$revenue) -
                               as.numeric(revenue_df$revenue) 
                               - as.numeric(revenue_df$budget))
 
+### set up pictures to be shown in app
+
 revenue_df$poster_path <- shQuote(paste0("https://image.tmdb.org/t/p/w500", revenue_df$poster_path), type = "cmd")
 
+### create a list of choices for shiny
 
 movie_choices <- as.list(revenue_df$title, all.names = TRUE)     
 names(movie_choices) <- revenue_df$title
