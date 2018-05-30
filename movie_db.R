@@ -59,6 +59,7 @@ revenue_df$earnings <- ifelse((as.numeric(revenue_df$revenue) -
                               as.numeric(revenue_df$revenue) 
                               - as.numeric(revenue_df$budget))
 
+revenue_df$poster_path <- shQuote(paste0("https://image.tmdb.org/t/p/w500", revenue_df$poster_path), type = "cmd")
 
 
 movie_choices <- as.list(revenue_df$title, all.names = TRUE)     

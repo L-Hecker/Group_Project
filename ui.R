@@ -3,7 +3,7 @@ library(shiny)
 library(plotly)
 library(shinythemes)
 shinyUI(navbarPage(
-  theme = shinytheme("spacelab"),
+  theme = shinytheme("slate"),
   "Movie Report",
   tabPanel(
     "Movie Profits",
@@ -14,10 +14,11 @@ shinyUI(navbarPage(
           label = "Choose Movie",
           choices = movie_choices
         ),
-        helpText(
-          "Note: All movies are popular upcoming/new releases from today's date.",
-          "Some movies have not yet released totals for their budget or revenue."
-        ),
+       htmlOutput("img1"),
+       helpText(
+         "Note: All movies are popular upcoming/new releases from today's date.",
+         "Some movies have not yet released totals for their budget or revenue."
+       ),
         
         tags$br()
       ),
