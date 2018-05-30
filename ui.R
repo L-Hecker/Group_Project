@@ -7,10 +7,8 @@ shinyUI(navbarPage(
   "Movie Report",
   tabPanel(
     "Movie Profits",
-    titlePanel("Earnings"),
     sidebarLayout(
       sidebarPanel(
-        tags$h2("Popular movies"),
         selectInput(
           "movie",
           label = "Choose Movie",
