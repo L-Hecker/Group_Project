@@ -11,10 +11,10 @@ shinyServer(function(input, output) {
   output$bar <- renderPlotly({
     budget_bar(revenue_df, input$movie)
   })
-    
-    output$img1 <- renderText ({   #This is where the image is set 
+    ### use pathway from TMDb to source image in accordance to movie title
+    output$img1 <- renderText ({   
       if(input$movie == revenue_df$title[1]){            
-        c("<img src=", revenue_df$poster_path[1], "height='500' width='390' >")
+        c("<img src=", revenue_df$poster_path[1], "height='480' width='390' >")
       } 
       else if(input$movie == revenue_df$title[2]){
         c("<img src=", revenue_df$poster_path[2], "height='500' width='390' >")
