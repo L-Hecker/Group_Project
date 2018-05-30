@@ -2,6 +2,8 @@
 library(shiny)
 library(plotly)
 library(shinythemes)
+source("movie_summary.R")
+
 shinyUI(navbarPage(
   theme = shinytheme("slate"),
   "Movie Report",
@@ -14,42 +16,54 @@ shinyUI(navbarPage(
           label = "Choose Movie",
           choices = movie_choices
         ),
-       htmlOutput("img1"),
+      htmlOutput("img1"),
         tags$br(),
-       HTML("<strong>Story Line: </strong>"),
-                  htmlOutput("overview")
-                
+      HTML("<strong>Story Line: </strong>"),
+        htmlOutput("overview")
+
       ),
-      
+
       mainPanel(column(8, align="center"),
         plotlyOutput("bar")
       )
     )
   ),
   tabPanel(
-    "Population",
-    titlePanel("State Population By Race"),
-    # Create sidebar layout
+    "Overview",
+    titlePanel("Film Description"),
     sidebarLayout(
       sidebarPanel(
         selectInput(
-          "location",
-          label = "Choose State",
-          choices = list(
-            "Illinois" = "IL",
-            "Indiana" = "IN",
-            "Michigan" = "MI",
-            "Ohio" = "OH",
-            "Wisconsin" = "WI"
-          )
-        ),
-        
-        tags$br()
+          "film",
+          label = "Choose Film",
+          choices = movie_choices
+        )
       ),
-      
       mainPanel(
-        plotlyOutput("")
+        htmlOutput("poster"),
+        h4("Overview"),
+        h5(textOutput("description")),
+        h5(textOutput("genre"))
       )
     )
   )
+  # tabPanel(
+  #   "Overview",
+  #   titlePanel("Film Description"),
+  #   sidebarLayout(
+  #     sidebarPanel(
+  #       selectInput(
+  #         "film",
+  #         label = "Choose Film",
+  #         choices = movie_choices
+  #       )
+  #     ),
+  #     # htmlOutput("img1"),
+  #     #   tags$br()
+  #     mainPanel(
+  #       htmlOutput("img1"),
+  #       tags$br()
+  #     )
+  #   )
+  # )
 ))
