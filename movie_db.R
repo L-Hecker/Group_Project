@@ -52,7 +52,7 @@ revenue_info <- apply(id_list, 1, get_data)
 # unlist data? and make into data frame?
 revenue_df <- data.frame(t(sapply(revenue_info,c)), stringsAsFactors = FALSE) %>% 
   select(title, overview, budget,release_date,
-         revenue, runtime, popularity, homepage, poster_path)
+         revenue, runtime, popularity, homepage, poster_path, vote_average, vote_count)
 
 ### CREATE NEW COLUMN WITH EARNINGS
 
