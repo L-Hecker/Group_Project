@@ -14,14 +14,14 @@ shinyUI(navbarPage(
           label = "Choose Movie",
           choices = movie_choices
         ),
-       htmlOutput("img1"),
+        htmlOutput("img1"),
         tags$br(),
-       HTML("<strong>Story Line: </strong>"),
-                  htmlOutput("overview")
-                
+        HTML("<strong>Story Line: </strong>"),
+        htmlOutput("overview")
       ),
-      
-      mainPanel(column(8, align="center"),
+
+      mainPanel(
+        column(8, align = "center"),
         plotlyOutput("bar")
       )
     )
@@ -43,10 +43,10 @@ shinyUI(navbarPage(
             "Wisconsin" = "WI"
           )
         ),
-        
+
         tags$br()
       ),
-      
+
       mainPanel(
         plotlyOutput("")
       )
