@@ -29,15 +29,14 @@ source("api_keys.R")
 
 ### Get top movies from today's date and make data frame ###
 
-movie_stuff <- discover_movie(api_key = movie_db_key, certification_country = "US",
-                              certification.lte = 16, primary_release_year = format(Sys.Date(), "%Y"))
-movie_df <- as.data.frame(movie_stuff$results)
+movie_stuff <- as.data.frame(discover_movie(api_key = movie_db_key, certification_country = "US",
+                              certification.lte = 16, primary_release_year = format(Sys.Date(), "%Y")))
 
 ### Seperate movie ID's to try and get revenue and budget ###
 
 # Create a list of movie ID's 
-id_list <- movie_df %>% 
-  select(id)
+id_list <- movie_stuff %>% 
+  select(results.id)
 
 # Create a function that calls movie info for budget/revenue for each ID
 get_data <- function(x) {
@@ -51,6 +50,16 @@ revenue_info <- apply(id_list, 1, get_data)
 # Turn list into data frame somehow by accessing each individual list for the movies
 
 # unlist data? and make into data frame?
-revenue_df <- data.frame(t(sapply(revenue_info,c))) %>% 
+revenue_df <- data.frame(t(sapply(revenue_info,c)), stringsAsFactors = FALSE) %>% 
   select(title, overview, budget,release_date,
          revenue, runtime, popularity, homepage, poster_path)
+
+revenue_df$earnings <- ifelse((as.numeric(revenue_df$revenue) -
+                                 as.numeric(revenue_df$budget)) < 0, 0, 
+                              as.numeric(revenue_df$revenue) 
+                              - as.numeric(revenue_df$budget))
+
+
+
+movie_choices <- as.list(revenue_df$title, all.names = TRUE)     
+names(movie_choices) <- revenue_df$title
