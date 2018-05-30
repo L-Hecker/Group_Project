@@ -45,6 +45,11 @@ get_data <- function(x) {
 }
 
 # Create a list of all the movie ID's and their addition info
+
+### NOTE: ERROR 429 here, requesting too much data ###
+### works when we run each line of code individually ###
+### after getting the error. ###
+
 revenue_info <- apply(id_list, 1, get_data)
 
 # Turn list into data frame somehow by accessing each individual list for the movies
