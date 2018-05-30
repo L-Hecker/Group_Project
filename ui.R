@@ -21,26 +21,21 @@ shinyUI(navbarPage(
       ),
 
       mainPanel(
-        column(8, align = "center"),
         plotlyOutput("bar")
       )
     )
   ),
   tabPanel(
-    "Population",
-    titlePanel("State Population By Race"),
+    "Profit Per Minute",
     # Create sidebar layout
     sidebarLayout(
       sidebarPanel(
-        selectInput(
-          "location",
-          label = "Choose State",
-          choices = list(
-            "Illinois" = "IL",
-            "Indiana" = "IN",
-            "Michigan" = "MI",
-            "Ohio" = "OH",
-            "Wisconsin" = "WI"
+        sliderInput(
+          "amount",
+          "USD/Minute",
+          min = minimum,
+          max = maximum,
+          value = average
           )
         ),
 
@@ -48,8 +43,8 @@ shinyUI(navbarPage(
       ),
 
       mainPanel(
-        plotlyOutput("")
+        plotlyOutput("scatter")
       )
     )
   )
-))
+)

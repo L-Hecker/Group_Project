@@ -1,6 +1,5 @@
 library(plotly)
 library(dplyr)
-library(RColorBrewer)
 
 ### bar graph showing budget, revenue, and total profit
 

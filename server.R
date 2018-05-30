@@ -7,9 +7,13 @@ source("./scripts/budget_bar.R")
 # Start shinyServer
 shinyServer(function(input, output) {
 
-  # Render a plotly object that returns your map
+  # Render a plotly object that returns bar graph
   output$bar <- renderPlotly({
     budget_bar(revenue_df, input$movie)
+  })
+  
+  output$scatter <- renderPlotly({
+    minute_scatter(revenue_df, input$amount)
   })
   ### use pathway from TMDb to source image in accordance to movie title
   output$img1 <- renderText({

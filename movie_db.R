@@ -61,12 +61,26 @@ as.numeric(revenue_df$revenue)
 - as.numeric(revenue_df$budget)
 )
 
-### set up pictures to be shown in app
+# set up pictures to be shown in app
 
 revenue_df$poster_path <- shQuote(paste0("https://image.tmdb.org/t/p/w500",
                                          revenue_df$poster_path), type = "cmd")
 
-### create a list of choices for shiny
+# create a list of choices for shiny
 
 movie_choices <- as.list(revenue_df$title, all.names = TRUE)
 names(movie_choices) <- revenue_df$title
+
+# Find earnings per minute
+revenue_df <- revenue_df %>% 
+  mutate(profit_per_minute = as.numeric(earnings)/as.numeric(runtime))
+
+minimum <- min(as.numeric(revenue_df$runtime))
+maximum <- max(as.numeric(revenue_df$runtime))
+average <- mean(as.numeric(revenue_df$runtime))
+
+revenue_df$title <- as.character(revenue_df$title)
+revenue_df$popularity <- as.numeric(revenue_df$popularity)
+revenue_df$profit_per_minute <- as.numeric(revenue_df$profit_per_minute)
+revenue_df$runtime <- as.numeric(revenue_df$runtime)
+revenue_df$vote_average <- as.numeric(revenue_df$vote_average)
