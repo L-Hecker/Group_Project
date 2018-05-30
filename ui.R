@@ -3,8 +3,8 @@ library(shiny)
 library(plotly)
 library(shinythemes)
 shinyUI(navbarPage(
-  theme = shinytheme("slate"),
-  "Top Movie Data",
+  theme = shinytheme("spacelab"),
+  "Movie Report",
   tabPanel(
     "Movie Profits",
     titlePanel("Earnings"),
