@@ -54,6 +54,8 @@ revenue_df <- data.frame(t(sapply(revenue_info,c)), stringsAsFactors = FALSE) %>
   select(title, overview, budget,release_date,
          revenue, runtime, popularity, homepage, poster_path)
 
+### CREATE NEW COLUMN WITH EARNINGS
+
 revenue_df$earnings <- ifelse((as.numeric(revenue_df$revenue) -
                                  as.numeric(revenue_df$budget)) < 0, 0, 
                               as.numeric(revenue_df$revenue) 
