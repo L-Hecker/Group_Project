@@ -15,9 +15,9 @@ shinyUI(navbarPage(
           choices = movie_choices
         ),
        htmlOutput("img1"),
-       htmlOutput("overview"),
-        
-        tags$br()
+        tags$br(),
+       HTML("Story line:"),
+                  htmlOutput("overview")
       ),
       
       mainPanel(
