@@ -16,11 +16,12 @@ shinyUI(navbarPage(
         ),
        htmlOutput("img1"),
         tags$br(),
-       HTML("Story line:"),
+       HTML("<strong>Story Line: </strong>"),
                   htmlOutput("overview")
+                
       ),
       
-      mainPanel(
+      mainPanel(column(8, align="center"),
         plotlyOutput("bar")
       )
     )
