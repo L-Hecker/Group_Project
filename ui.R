@@ -7,6 +7,7 @@ shinyUI(navbarPage(
   "Movie Report",
   tabPanel(
     "Overview",
+    img(src="http://www.marcustheatres.com/media/images/gallery-images/majestic-cinema-of-brookfield/41-majesticbrookfield-exteriorjpg.jpg",height = 700, width = 700, align = "right"),
     h1("Our Project"),
     p("This app utilizies TMDb's API to view data on specific movies and answer questions about a movie's success or possible shortcomings. For this project, we pull in the most recent data available on the date this app is accessed and showcases 20 of the most popular new/upcoming films. We provide information on a movie's finances as well as its popularity, giving the audience a chance to see how much money goes into making a film and how much a film needs to make to be profitable."),
     h1("TMDb's API"),
@@ -46,7 +47,7 @@ shinyUI(navbarPage(
           "Movie Runtime (minutes)",
           min = minimum,
           max = maximum,
-          value = average
+          value = maximum
           )
         ),
 
