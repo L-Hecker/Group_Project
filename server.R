@@ -80,4 +80,69 @@ shinyServer(function(input, output) {
         c("<img src=", revenue_df$poster_path[20], "height='500' width='390' >")
       }  
     })
+    
+    ### adds a summary about chosen movie
+    
+    output$overview <- renderText ({   
+      if(input$movie == revenue_df$title[1]){            
+        c("Summary: ", as.character(revenue_df$overview[1]))
+      } 
+      else if(input$movie == revenue_df$title[2]){
+        c("Summary: ", as.character(revenue_df$overview[2]))
+      }
+      else if(input$movie == revenue_df$title[3]){
+        c("Summary: ", as.character(revenue_df$overview[3]))
+      }
+      else if(input$movie == revenue_df$title[4]){
+        c("Summary: ", as.character(revenue_df$overview[4]))
+      }
+      else if(input$movie == revenue_df$title[5]){
+        c("Summary: ", as.character(revenue_df$overview[5]))
+      }
+      else if(input$movie == revenue_df$title[6]){
+        c("Summary: ", as.character(revenue_df$overview[6]))
+      }
+      else if(input$movie == revenue_df$title[7]){
+        c("Summary: ", as.character(revenue_df$overview[7]))
+      }
+      else if(input$movie == revenue_df$title[8]){
+        c("Summary: ", as.character(revenue_df$overview[8]))
+      }
+      else if(input$movie == revenue_df$title[9]){
+        c("Summary: ", as.character(revenue_df$overview[9]))
+      }
+      else if(input$movie == revenue_df$title[10]){
+        c("Summary: ", as.character(revenue_df$overview[10]))
+      }
+      else if(input$movie == revenue_df$title[11]){
+        c("Summary: ", as.character(revenue_df$overview[11]))
+      }
+      else if(input$movie == revenue_df$title[12]){
+        c("Summary: ", as.character(revenue_df$overview[12]))
+      }
+      else if(input$movie == revenue_df$title[13]){
+        c("Summary: ", as.character(revenue_df$overview[13]))
+      }
+      else if(input$movie == revenue_df$title[14]){
+        c("Summary: ", as.character(revenue_df$overview[14]))
+      }
+      else if(input$movie == revenue_df$title[15]){
+        c("Summary: ", as.character(revenue_df$overview[15]))
+      }
+      else if(input$movie == revenue_df$title[16]){
+        c("Summary: ", as.character(revenue_df$overview[16]))
+      }
+      else if(input$movie == revenue_df$title[17]){
+        c("Summary: ", as.character(revenue_df$overview[17]))
+      }
+      else if(input$movie == revenue_df$title[18]){
+        c("Summary: ", as.character(revenue_df$overview[18]))
+      }
+      else if(input$movie == revenue_df$title[19]){
+        c("Summary: ", as.character(revenue_df$overview[19]))
+      }
+      else if(input$movie == revenue_df$title[20]){
+        c("Summary: ", as.character(revenue_df$overview[20]))
+      }
+    })
 })

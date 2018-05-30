@@ -15,10 +15,7 @@ shinyUI(navbarPage(
           choices = movie_choices
         ),
        htmlOutput("img1"),
-       helpText(
-         "Note: All movies are popular upcoming/new releases from today's date.",
-         "Some movies may not yet have released totals for their budget or revenue."
-       ),
+       htmlOutput("overview"),
         
         tags$br()
       ),
